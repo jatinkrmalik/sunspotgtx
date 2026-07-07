@@ -1,0 +1,13 @@
+# robots.txt for sunspotgtx.com
+# Deepak Electrical Industries (India) - Sunspot
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sunspotgtx.com/sitemap.xml
+
+# Disallow access to research/internal files
+Disallow: /research/
+Disallow: /src/
+Disallow: /images/

@@ -55,18 +55,6 @@
     if (errorMsg) errorMsg.remove();
   }
 
-  function resetHamburger(toggle) {
-    if (!toggle) return;
-    toggle.classList.remove('active');
-    toggle.setAttribute('aria-expanded', 'false');
-    var spans = toggle.querySelectorAll('span');
-    if (spans.length >= 3) {
-      spans[0].style.transform = '';
-      spans[1].style.opacity = '';
-      spans[2].style.transform = '';
-    }
-  }
-
   // === Mobile Menu ===
   var mobileToggle = document.querySelector('.mobile-toggle');
   var navMenu = document.querySelector('.nav-menu');
@@ -74,29 +62,44 @@
   if (mobileToggle && navMenu) {
     mobileToggle.setAttribute('aria-controls', 'main-nav');
     if (!navMenu.id) navMenu.id = 'main-nav';
+    navMenu.setAttribute('aria-hidden', 'true');
+
+    function setMenuOpen(isOpen) {
+      navMenu.classList.toggle('open', isOpen);
+      mobileToggle.classList.toggle('active', isOpen);
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.classList.toggle('nav-open', isOpen);
+
+      var spans = mobileToggle.querySelectorAll('span');
+      if (spans.length >= 3) {
+        if (isOpen) {
+          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          spans[1].style.opacity = '0';
+          spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+        } else {
+          spans[0].style.transform = '';
+          spans[1].style.opacity = '';
+          spans[2].style.transform = '';
+        }
+      }
+    }
 
     mobileToggle.addEventListener('click', function() {
-      var isOpen = navMenu.classList.toggle('open');
-      this.classList.toggle('active', isOpen);
-      this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-
-      var spans = this.querySelectorAll('span');
-      if (isOpen) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-      } else {
-        spans[0].style.transform = '';
-        spans[1].style.opacity = '';
-        spans[2].style.transform = '';
-      }
+      setMenuOpen(!navMenu.classList.contains('open'));
     });
 
     navMenu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
-        navMenu.classList.remove('open');
-        resetHamburger(mobileToggle);
+        setMenuOpen(false);
       });
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        setMenuOpen(false);
+      }
     });
   }
 

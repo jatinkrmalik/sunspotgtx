@@ -260,7 +260,7 @@
           showFormStatus(form, false,
             'We could not send email automatically. Opening WhatsApp so you can send this enquiry now…');
           window.open(
-            'https://wa.me/919313555700?text=' + encodeURIComponent(waText),
+            'https://wa.me/919268708058?text=' + encodeURIComponent(waText),
             '_blank',
             'noopener'
           );

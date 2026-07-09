@@ -21,7 +21,7 @@ Deepak Electrical Industries (India) is a manufacturer of ISI-marked electrical 
 ## Contact
 
 - **Address:** E-206, Sector-4, DSIIDC Industrial Area, Bawana, North West Delhi, Delhi – 110039
-- **Phone:** +91-9313555700 | 011-27762250
+- **Phone:** +91 92687 08058 | 011-27762250
 - **Email:** sunspotgtx@gmail.com
 - **Proprietor:** Mr. Deepak Kumar Malik
 - **GST:** 07AAKPM3211D1Z6

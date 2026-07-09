@@ -36,7 +36,7 @@ Delhi – 110039, India
 
 | Number | Source | Notes |
 |--------|--------|-------|
-| +91-9313555700 | Sansadhan.com | Primary mobile |
+| +91 92687 08058 | Sansadhan.com | Primary mobile |
 | 011-27762250 | Grotal.com | Landline |
 | 8586929836 | Grotal.com | Mobile |
 
@@ -160,7 +160,7 @@ Delhi – 110015, India
 - **URL:** https://www.sansadhan.com/yp/deepak-electrical-industries-north-west-delhi
 - **Category:** Table Fan Manufacturer in Bawana, New Delhi
 - **Serving City:** North West Delhi
-- **Phone:** +91-9313555700
+- **Phone:** +91 92687 08058
 
 ### Indian Yellow Pages
 

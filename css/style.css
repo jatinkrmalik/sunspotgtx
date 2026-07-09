@@ -366,10 +366,20 @@ html[data-lang="hi"] h2 {
   max-width: 14ch;
 }
 
-.hero-content h1 span {
+.hero-content h1 .hero-since {
+  display: table;
+  margin-top: 0.7rem;
+  padding: 0.42rem 0.7rem;
+  border-left: 3px solid var(--color-primary);
+  background: rgba(200, 16, 46, 0.16);
   color: #f5f4f0;
-  font-style: italic;
-  font-weight: 500;
+  font-family: var(--font-primary);
+  font-size: 0.24em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .hero-badge {
@@ -1271,6 +1281,11 @@ html[data-lang="hi"] h2 {
 
   .hero-content h1 {
     max-width: 16ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content h1 .hero-since {
     margin-left: auto;
     margin-right: auto;
   }

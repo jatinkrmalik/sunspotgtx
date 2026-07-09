@@ -238,7 +238,7 @@
     }
   }
 
-  // === Contact Form: validate + submit via FormSubmit ===
+  // === Contact Form: validate + continue on WhatsApp ===
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -278,72 +278,27 @@
 
       if (!isValid) return;
 
-      var submitBtn = form.querySelector('[type="submit"]');
-      var originalBtnText = submitBtn ? submitBtn.textContent : '';
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = i18n('contact.sending', 'Sending…');
-      }
+      var name = form.querySelector('[name="name"]').value || '';
+      var phone = form.querySelector('[name="phone"]').value || '';
+      var email = form.querySelector('[name="email"]').value || '';
+      var city = form.querySelector('[name="city"]') ? form.querySelector('[name="city"]').value : '';
+      var product = form.querySelector('[name="product"]');
+      var productLabel = product && product.selectedIndex >= 0
+        ? product.options[product.selectedIndex].text
+        : '';
+      var message = form.querySelector('[name="message"]').value || '';
+      var placeholderOpt = i18n('contact.form.product.placeholder', 'Select a product category');
+      var waText = [
+        i18n('contact.wa.prefill', 'Hello, I would like to enquire about your products.'),
+        'Name: ' + name,
+        'Phone: ' + phone,
+        email ? 'Email: ' + email : '',
+        city ? 'City: ' + city : '',
+        productLabel && productLabel !== placeholderOpt ? 'Product: ' + productLabel : '',
+        'Message: ' + message
+      ].filter(Boolean).join('\n');
 
-      // Remove prior alerts
-      form.querySelectorAll('.form-status').forEach(function(el) { el.remove(); });
-
-      var formData = new FormData(form);
-      // FormSubmit helpers
-      formData.append('_subject', 'Sunspot website enquiry from ' + (formData.get('name') || 'visitor'));
-      formData.append('_template', 'table');
-      formData.append('_captcha', 'false');
-
-      fetch('https://formsubmit.co/ajax/sunspotgtx@gmail.com', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      })
-        .then(function(res) {
-          if (!res.ok) throw new Error('Form service returned ' + res.status);
-          return res.json();
-        })
-        .then(function() {
-          showFormStatus(form, true,
-            i18n('contact.success', '✓ Thank you for your enquiry! We will get back to you within 24 hours.'));
-          form.reset();
-        })
-        .catch(function() {
-          // Fallback: open WhatsApp with prefilled enquiry so the lead is never lost
-          var name = form.querySelector('[name="name"]').value || '';
-          var phone = form.querySelector('[name="phone"]').value || '';
-          var email = form.querySelector('[name="email"]').value || '';
-          var city = form.querySelector('[name="city"]') ? form.querySelector('[name="city"]').value : '';
-          var product = form.querySelector('[name="product"]');
-          var productLabel = product && product.selectedIndex >= 0
-            ? product.options[product.selectedIndex].text
-            : '';
-          var message = form.querySelector('[name="message"]').value || '';
-          var placeholderOpt = i18n('contact.form.product.placeholder', 'Select a product category');
-          var waText = [
-            i18n('contact.wa.prefill', 'Hello, I would like to enquire about your products.'),
-            'Name: ' + name,
-            'Phone: ' + phone,
-            'Email: ' + email,
-            city ? 'City: ' + city : '',
-            productLabel && productLabel !== placeholderOpt ? 'Product: ' + productLabel : '',
-            'Message: ' + message
-          ].filter(Boolean).join('\n');
-
-          showFormStatus(form, false,
-            i18n('contact.fail', 'We could not send email automatically. Opening WhatsApp so you can send this enquiry now…'));
-          window.open(
-            'https://wa.me/919268708058?text=' + encodeURIComponent(waText),
-            '_blank',
-            'noopener'
-          );
-        })
-        .finally(function() {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
-          }
-        });
+      window.location.assign('https://wa.me/919268708058?text=' + encodeURIComponent(waText));
     });
 
     contactForm.querySelectorAll('input, textarea, select').forEach(function(field) {
@@ -351,23 +306,6 @@
         clearError(this);
       });
     });
-  }
-
-  function showFormStatus(form, success, text) {
-    var status = document.createElement('div');
-    status.className = 'form-status';
-    status.setAttribute('role', 'status');
-    status.style.background = success ? '#d4edda' : '#fff3cd';
-    status.style.color = success ? '#155724' : '#856404';
-    status.style.padding = '16px';
-    status.style.borderRadius = '8px';
-    status.style.marginBottom = '20px';
-    status.style.textAlign = 'center';
-    status.textContent = text;
-    form.insertBefore(status, form.firstChild);
-    setTimeout(function() {
-      if (status.parentNode) status.remove();
-    }, 8000);
   }
 
   // === Smooth scroll for anchor links ===

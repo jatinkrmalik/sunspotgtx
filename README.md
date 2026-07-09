@@ -33,7 +33,7 @@ Deepak Electrical Industries (India) has made electrical appliances in Delhi sin
 - Responsive layout
 - JSON-LD structured data
 - GitHub Pages
-- Contact form through [FormSubmit](https://formsubmit.co), with WhatsApp as a fallback
+- Contact form with a prefilled WhatsApp enquiry
 
 ## Local preview
 
@@ -43,9 +43,9 @@ python3 -m http.server 8080
 
 Then open `http://localhost:8080`.
 
-## Contact form setup
+## Contact form
 
-The contact form posts enquiries to `sunspotgtx@gmail.com` through FormSubmit. Before using it, open that inbox and confirm the FormSubmit activation email. If FormSubmit is unavailable, the form opens WhatsApp with a prefilled enquiry so the customer can still send the message.
+The contact form validates the enquiry, then opens WhatsApp with the details prefilled for the customer to send.
 
 Product enquiry links add `?product=...`, and the contact page uses it to preselect the product.
 

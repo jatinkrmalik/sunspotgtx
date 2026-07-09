@@ -1202,9 +1202,43 @@ p { margin-bottom: 1em; }
     text-align: center;
   }
 
-  .hero-content p { margin: 0 auto 2rem; }
-  .hero-buttons { justify-content: center; }
-  .hero-stats { justify-content: center; }
+  /* Center the constrained title block (max-width alone left-aligned it) */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    max-width: 16ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content p {
+    margin: 0 auto 2rem;
+    max-width: 32rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
   .hero-visual { display: none; }
 
   .footer-grid {

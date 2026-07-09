@@ -1,0 +1,3 @@
+# Keep research notes out of search indexes if ever crawled by path
+User-agent: *
+Disallow: /

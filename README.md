@@ -1,26 +1,26 @@
-# Sunspot — Deepak Electrical Industries (India)
+# Sunspot - Deepak Electrical Industries (India)
 
-Static website for [sunspotgtx.com](https://sunspotgtx.com)
+Website for Sunspot, the brand used by Deepak Electrical Industries (India).
 
 ## About
 
-Deepak Electrical Industries (India) is a manufacturer of ISI-marked electrical appliances established in 1986. Operating under the brand **Sunspot**, we produce room heaters, exhaust fans, table fans, cooler fans, pumps, and heating elements from our factory in Bawana Industrial Area, Delhi.
+Deepak Electrical Industries (India) has made electrical appliances in Delhi since 1986. Under the **Sunspot** brand, the factory makes room heaters, exhaust fans, table and wall fans, cooler fans, pumps, and heating elements from its unit in Bawana Industrial Area.
 
 ## Products
 
-- Electric Room Heaters (Heat Converters & Fan Heaters) — ISI Marked
-- Exhaust Fans (Axial, Fresh Air, Trans Air) — ISI Marked
-- Table Fans & Wall Fans
-- Cooler Fans / Climatizer Fans
+- Electric room heaters (heat convectors and fan heaters), ISI marked
+- Exhaust fans (axial, fresh air, trans air), ISI marked
+- Table fans and wall fans
+- Cooler fans / climatizer fans
 - Industrial & Heavy Duty Exhaust Fans
-- Immersion Water Heaters
-- Fountain Pumps & Cooler Pumps
+- Immersion water heaters
+- Fountain pumps and cooler pumps
 - Flexi Fans
-- Heating Elements (Strip, Cartridge, Band, Finned)
+- Heating elements (strip, cartridge, band, finned)
 
 ## Contact
 
-- **Address:** E-206, Sector-4, DSIIDC Industrial Area, Bawana, North West Delhi, Delhi – 110039
+- **Address:** E-206, Sector-4, DSIIDC Industrial Area, Bawana, North West Delhi, Delhi - 110039
 - **Phone:** +91 92687 08058 | 011-27762250
 - **Email:** sunspotgtx@gmail.com
 - **Proprietor:** Mr. Deepak Kumar Malik
@@ -28,33 +28,32 @@ Deepak Electrical Industries (India) is a manufacturer of ISI-marked electrical 
 
 ## Tech Stack
 
-- Pure HTML5, CSS3, Vanilla JavaScript
-- No frameworks or dependencies
-- Mobile-first responsive design
-- SEO optimized with JSON-LD structured data
-- GitHub Pages deployment with custom domain
-- Contact form via [FormSubmit](https://formsubmit.co) (AJAX) with WhatsApp fallback
+- Static HTML, CSS, and vanilla JavaScript
+- No framework or build step
+- Responsive layout
+- JSON-LD structured data
+- GitHub Pages
+- Contact form through [FormSubmit](https://formsubmit.co), with WhatsApp as a fallback
 
 ## Local preview
 
 ```bash
-# From repo root
 python3 -m http.server 8080
-# open http://localhost:8080
 ```
+
+Then open `http://localhost:8080`.
 
 ## Contact form setup
 
-Enquiries POST to `sunspotgtx@gmail.com` through FormSubmit. On first use, open that inbox and confirm the FormSubmit activation email. If the email service is unavailable, the form opens WhatsApp with a prefilled message so leads are not lost.
+The contact form posts enquiries to `sunspotgtx@gmail.com` through FormSubmit. Before using it, open that inbox and confirm the FormSubmit activation email. If FormSubmit is unavailable, the form opens WhatsApp with a prefilled enquiry so the customer can still send the message.
 
-Product “Enquire Now” links pass `?product=…` and the contact page prefills the product dropdown.
+Product enquiry links add `?product=...`, and the contact page uses it to preselect the product.
 
 ## Deploy (GitHub Pages)
 
-1. Merge `feature/website` into `main`
-2. Repo **Settings → Pages → Deploy from branch `main` / root**
-3. Point `sunspotgtx.com` DNS (A/AAAA or CNAME) at GitHub Pages
-4. Keep the `CNAME` file (`sunspotgtx.com`) in the repo
+1. Push changes to `main`.
+2. In repo settings, set Pages to deploy from branch `main` / root.
+3. Use the generated GitHub Pages URL, or point a custom domain at GitHub Pages if needed.
 
 ---
 

@@ -176,6 +176,7 @@
       var step = card.offsetWidth + gap;
       var maxLeft = track.scrollWidth - track.clientWidth;
       var maxIndex = Math.max(0, Math.round(maxLeft / step));
+      currentIndex = Math.min(maxIndex, Math.max(0, Math.round(track.scrollLeft / step)));
 
       if (direction > 0) {
         currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
@@ -191,6 +192,32 @@
     var next = carousel.querySelector('[data-carousel-next]');
     if (prev) prev.addEventListener('click', function() { scrollReviews(-1); });
     if (next) next.addEventListener('click', function() { scrollReviews(1); });
+
+    var autoplay;
+    function stopAutoplay() {
+      window.clearInterval(autoplay);
+      autoplay = null;
+    }
+    function startAutoplay() {
+      if (autoplay || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      autoplay = window.setInterval(function() {
+        if (!document.hidden) scrollReviews(1);
+      }, 5000);
+    }
+
+    carousel.addEventListener('pointerenter', stopAutoplay);
+    carousel.addEventListener('pointerleave', startAutoplay);
+    carousel.addEventListener('focusin', stopAutoplay);
+    carousel.addEventListener('focusout', function(event) {
+      if (!carousel.contains(event.relatedTarget)) startAutoplay();
+    });
+    track.addEventListener('touchstart', stopAutoplay, { passive: true });
+    track.addEventListener('touchend', startAutoplay, { passive: true });
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+    startAutoplay();
   });
 
   // === Prefill product from ?product= query (contact page) ===

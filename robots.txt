@@ -4,10 +4,8 @@
 User-agent: *
 Allow: /
 
+# Internal research notes (not for indexing)
+Disallow: /research/
+
 # Sitemap
 Sitemap: https://sunspotgtx.com/sitemap.xml
-
-# Disallow access to research/internal files
-Disallow: /research/
-Disallow: /src/
-Disallow: /images/

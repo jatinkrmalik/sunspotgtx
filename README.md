@@ -33,6 +33,28 @@ Deepak Electrical Industries (India) is a manufacturer of ISI-marked electrical 
 - Mobile-first responsive design
 - SEO optimized with JSON-LD structured data
 - GitHub Pages deployment with custom domain
+- Contact form via [FormSubmit](https://formsubmit.co) (AJAX) with WhatsApp fallback
+
+## Local preview
+
+```bash
+# From repo root
+python3 -m http.server 8080
+# open http://localhost:8080
+```
+
+## Contact form setup
+
+Enquiries POST to `info@sunspotgtx.com` through FormSubmit. On first use, open that inbox and confirm the FormSubmit activation email. If the email service is unavailable, the form opens WhatsApp with a prefilled message so leads are not lost.
+
+Product “Enquire Now” links pass `?product=…` and the contact page prefills the product dropdown.
+
+## Deploy (GitHub Pages)
+
+1. Merge `feature/website` into `main`
+2. Repo **Settings → Pages → Deploy from branch `main` / root**
+3. Point `sunspotgtx.com` DNS (A/AAAA or CNAME) at GitHub Pages
+4. Keep the `CNAME` file (`sunspotgtx.com`) in the repo
 
 ---
 

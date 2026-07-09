@@ -1216,14 +1216,31 @@ p { margin-bottom: 1em; }
   border: 0;
 }
 
-/* === Animations === */
+/* === Product filter (no JS race on display:none timeouts) === */
+.product-card.is-filtered-out {
+  display: none !important;
+}
+
+/* === Animations (CSS-first: visible by default; JS only enhances) === */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .will-animate {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .will-animate.animate-in {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+}
+
 .animate-in {
-  animation: fadeInUp 0.6s ease forwards;
+  opacity: 1;
+  transform: none;
 }
 
 /* === Print === */

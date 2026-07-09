@@ -14,6 +14,9 @@
   <meta property="og:description" content="Get in touch for product enquiries, bulk orders, and dealership opportunities. Factory: Bawana Industrial Area, Delhi.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sunspotgtx.com/contact.html">
+  <meta property="og:image" content="https://sunspotgtx.com/assets/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sunspotgtx.com/assets/logo.svg">
 
   <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
   <link rel="stylesheet" href="/css/style.css">
@@ -128,25 +131,31 @@
           <div class="contact-form">
             <h3 style="margin-bottom: 1.5rem;">Send Us an Enquiry</h3>
 
-            <form id="contactForm" novalidate>
+            <form id="contactForm" action="https://formsubmit.co/info@sunspotgtx.com" method="POST" novalidate>
+              <!-- FormSubmit configuration (used on non-JS fallback POST) -->
+              <input type="hidden" name="_subject" value="Sunspot website enquiry">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
               <div class="form-group">
                 <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" placeholder="Your full name" required>
+                <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
               </div>
 
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" placeholder="+91-XXXXXXXXXX" required>
+                <input type="tel" id="phone" name="phone" placeholder="+91-XXXXXXXXXX" required autocomplete="tel" inputmode="tel">
               </div>
 
               <div class="form-group">
                 <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
               </div>
 
               <div class="form-group">
                 <label for="city">City / State</label>
-                <input type="text" id="city" name="city" placeholder="e.g., Delhi, Maharashtra">
+                <input type="text" id="city" name="city" placeholder="e.g., Delhi, Maharashtra" autocomplete="address-level2">
               </div>
 
               <div class="form-group">
@@ -155,7 +164,11 @@
                   <option value="">Select a product category</option>
                   <option value="room-heater">Electric Room Heater</option>
                   <option value="fan-heater">Fan Heater</option>
-                  <option value="exhaust-fan">Exhaust Fan</option>
+                  <option value="exhaust-fan">Exhaust Fan (general)</option>
+                  <option value="axial-fan">Axial Exhaust Fan</option>
+                  <option value="fresh-air-high-speed">Fresh Air Fan (High Speed)</option>
+                  <option value="fresh-air-3-leaf">Fresh Air Fan (3 Leaf)</option>
+                  <option value="trans-air-fan">Trans Air Fan</option>
                   <option value="table-fan">Table Fan</option>
                   <option value="wall-fan">Wall Fan</option>
                   <option value="cooler-fan">Cooler / Climatizer Fan</option>
@@ -178,22 +191,29 @@
 
               <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Submit Enquiry →</button>
 
-              <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 12px; text-align: center;">We typically respond within 24 hours on business days.</p>
+              <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 12px; text-align: center;">
+                We typically respond within 24 hours on business days.
+                Prefer chat? <a href="https://wa.me/919313555700?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener">Message on WhatsApp</a>.
+              </p>
             </form>
           </div>
         </div>
 
       </div>
 
-      <!-- Map -->
+      <!-- Map: Bawana DSIIDC Industrial Area (E-206, Sector-4) -->
       <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.8!2d77.1167!3d28.7467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDQ0JzQ4LjEiTiA3N8KwMDcnMDAuMSJF!5e0!3m2!1sen!2sin!4v1"
+        <iframe
+          src="https://maps.google.com/maps?q=E-206%2C%20Sector-4%2C%20DSIIDC%20Industrial%20Area%2C%20Bawana%2C%20Delhi%20110039&z=16&output=embed"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Deepak Electrical Industries Factory Location - Bawana, Delhi">
+          title="Deepak Electrical Industries Factory Location - E-206 Sector-4 DSIIDC Bawana, Delhi">
         </iframe>
+        <p style="margin-top: 12px; font-size: 0.85rem; color: var(--color-text-muted); text-align: center;">
+          E-206, Sector-4, DSIIDC Industrial Area, Bawana, North West Delhi – 110039 ·
+          <a href="https://www.google.com/maps/search/?api=1&query=E-206+Sector-4+DSIIDC+Bawana+Delhi+110039" target="_blank" rel="noopener">Open in Google Maps</a>
+        </p>
       </div>
     </div>
   </section>

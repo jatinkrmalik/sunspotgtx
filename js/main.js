@@ -156,6 +156,29 @@
     });
   }
 
+  // === Reviews Carousel ===
+  document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
+    var track = carousel.querySelector('.reviews-track');
+    if (!track) return;
+
+    Array.prototype.slice.call(track.children)
+      .sort(function() { return Math.random() - 0.5; })
+      .forEach(function(card) { track.appendChild(card); });
+    track.scrollLeft = 0;
+    window.requestAnimationFrame(function() { track.scrollLeft = 0; });
+
+    function scrollReviews(direction) {
+      var card = track.querySelector('.review-card');
+      if (!card) return;
+      track.scrollBy({ left: direction * (card.offsetWidth + 20), behavior: 'smooth' });
+    }
+
+    var prev = carousel.querySelector('[data-carousel-prev]');
+    var next = carousel.querySelector('[data-carousel-next]');
+    if (prev) prev.addEventListener('click', function() { scrollReviews(-1); });
+    if (next) next.addEventListener('click', function() { scrollReviews(1); });
+  });
+
   // === Prefill product from ?product= query (contact page) ===
   var productSelect = document.getElementById('product');
   if (productSelect) {

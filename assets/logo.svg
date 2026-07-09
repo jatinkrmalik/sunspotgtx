@@ -1,7 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 90" role="img" aria-label="Sunspot — The mark of excellence">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 52" role="img" aria-label="Sunspot — The mark of excellence">
   <title>Sunspot</title>
-  <text x="8" y="52" font-family="Georgia, 'Times New Roman', Times, serif" font-size="48" font-weight="700" fill="#C8102E">Sunspot</text>
-  <circle cx="248" cy="22" r="11" fill="none" stroke="#C8102E" stroke-width="2"/>
-  <text x="242" y="27" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#C8102E">R</text>
-  <text x="12" y="76" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="500" fill="#C8102E">The mark of excellence</text>
+  <!-- Transparent background; brand red wordmark only -->
+  <text x="0" y="32"
+        font-family="Georgia, 'Times New Roman', Times, serif"
+        font-size="34"
+        font-weight="700"
+        fill="#C8102E"
+        letter-spacing="-0.4">Sunspot</text>
+  <text x="152" y="16"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="12"
+        font-weight="700"
+        fill="#C8102E">®</text>
+  <text x="1" y="48"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10.5"
+        font-weight="500"
+        fill="#C8102E"
+        letter-spacing="0.15">The mark of excellence</text>
 </svg>

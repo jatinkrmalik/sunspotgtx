@@ -22,7 +22,7 @@ Deepak Electrical Industries (India) is a manufacturer of ISI-marked electrical 
 
 - **Address:** E-206, Sector-4, DSIIDC Industrial Area, Bawana, North West Delhi, Delhi – 110039
 - **Phone:** +91-9313555700 | 011-27762250
-- **Email:** info@sunspotgtx.com
+- **Email:** sunspotgtx@gmail.com
 - **Proprietor:** Mr. Deepak Kumar Malik
 - **GST:** 07AAKPM3211D1Z6
 
@@ -45,7 +45,7 @@ python3 -m http.server 8080
 
 ## Contact form setup
 
-Enquiries POST to `info@sunspotgtx.com` through FormSubmit. On first use, open that inbox and confirm the FormSubmit activation email. If the email service is unavailable, the form opens WhatsApp with a prefilled message so leads are not lost.
+Enquiries POST to `sunspotgtx@gmail.com` through FormSubmit. On first use, open that inbox and confirm the FormSubmit activation email. If the email service is unavailable, the form opens WhatsApp with a prefilled message so leads are not lost.
 
 Product “Enquire Now” links pass `?product=…` and the contact page prefills the product dropdown.
 

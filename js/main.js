@@ -219,7 +219,7 @@
       formData.append('_template', 'table');
       formData.append('_captcha', 'false');
 
-      fetch('https://formsubmit.co/ajax/info@sunspotgtx.com', {
+      fetch('https://formsubmit.co/ajax/sunspotgtx@gmail.com', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: formData

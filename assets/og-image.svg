@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#161616"/>
+  <rect x="742" y="86" width="336" height="336" fill="#C8102E"/>
+  <rect x="72" y="90" width="184" height="2" fill="#C8102E"/>
+  <image href="logo.png" x="72" y="48" width="238" height="50" preserveAspectRatio="xMinYMid meet"/>
+  <text x="72" y="208" fill="#F5F4F0" font-family="Georgia, serif" font-size="70" font-weight="bold">Electrical</text>
+  <text x="72" y="286" fill="#F5F4F0" font-family="Georgia, serif" font-size="70" font-weight="bold">manufacturers</text>
+  <text x="72" y="364" fill="#F5F4F0" font-family="Georgia, serif" font-size="70" font-style="italic">since 1986</text>
+  <text x="72" y="430" fill="#C9C9C4" font-family="Arial, sans-serif" font-size="24">ISI-marked fans, heaters, pumps and heating elements.</text>
+  <line x1="72" y1="506" x2="590" y2="506" stroke="#595954" stroke-width="1"/>
+  <text x="72" y="554" fill="#F5F4F0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" letter-spacing="1">DELHI, INDIA</text>
+  <text x="278" y="554" fill="#A9A9A2" font-family="Arial, sans-serif" font-size="20" letter-spacing="1">ISI-CERTIFIED</text>
+  <text x="470" y="554" fill="#A9A9A2" font-family="Arial, sans-serif" font-size="20" letter-spacing="1">40+ YEARS</text>
+  <image href="products/fresh-air-fan-cutout.png" x="580" y="2" width="620" height="620" preserveAspectRatio="xMidYMid meet"/>
+  <rect x="1124" y="526" width="28" height="28" fill="#C8102E"/>
+</svg>

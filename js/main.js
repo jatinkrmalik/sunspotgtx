@@ -167,10 +167,24 @@
     track.scrollLeft = 0;
     window.requestAnimationFrame(function() { track.scrollLeft = 0; });
 
+    var currentIndex = 0;
+
     function scrollReviews(direction) {
       var card = track.querySelector('.review-card');
       if (!card) return;
-      track.scrollBy({ left: direction * (card.offsetWidth + 20), behavior: 'smooth' });
+      var gap = parseFloat(window.getComputedStyle(track).columnGap) || 0;
+      var step = card.offsetWidth + gap;
+      var maxLeft = track.scrollWidth - track.clientWidth;
+      var maxIndex = Math.max(0, Math.round(maxLeft / step));
+
+      if (direction > 0) {
+        currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+      } else if (direction < 0 && track.scrollLeft <= 2) {
+        currentIndex = maxIndex;
+      } else if (direction < 0) {
+        currentIndex -= 1;
+      }
+      track.scrollTo({ left: currentIndex * step, behavior: 'smooth' });
     }
 
     var prev = carousel.querySelector('[data-carousel-prev]');

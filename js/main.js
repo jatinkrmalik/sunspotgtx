@@ -31,6 +31,14 @@
     'other': 'other'
   };
 
+  function i18n(key, fallback) {
+    if (window.SUNSPOT_I18N && typeof window.SUNSPOT_I18N.t === 'function') {
+      var v = window.SUNSPOT_I18N.t(key);
+      if (v != null && v !== '') return v;
+    }
+    return fallback;
+  }
+
   function setError(field, message) {
     field.style.borderColor = '#e74c3c';
     var existing = field.parentNode.querySelector('.error-msg');
@@ -178,7 +186,7 @@
       requiredFields.forEach(function(field) {
         if (!field.value.trim()) {
           isValid = false;
-          setError(field, 'This field is required');
+          setError(field, i18n('contact.required', 'This field is required'));
         } else {
           clearError(field);
         }
@@ -189,7 +197,7 @@
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailField.value.trim())) {
           isValid = false;
-          setError(emailField, 'Please enter a valid email address');
+          setError(emailField, i18n('contact.email.invalid', 'Please enter a valid email address'));
         }
       }
 
@@ -200,7 +208,7 @@
         var phoneOk = /^(?:91)?[6-9]\d{9}$/.test(digits) || /^\d{10,15}$/.test(digits);
         if (!phoneOk) {
           isValid = false;
-          setError(phoneField, 'Please enter a valid 10-digit phone number');
+          setError(phoneField, i18n('contact.phone.invalid', 'Please enter a valid 10-digit phone number'));
         }
       }
 
@@ -210,7 +218,7 @@
       var originalBtnText = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending…';
+        submitBtn.textContent = i18n('contact.sending', 'Sending…');
       }
 
       // Remove prior alerts
@@ -233,7 +241,7 @@
         })
         .then(function() {
           showFormStatus(form, true,
-            '✓ Thank you for your enquiry! We will get back to you within 24 hours.');
+            i18n('contact.success', '✓ Thank you for your enquiry! We will get back to you within 24 hours.'));
           form.reset();
         })
         .catch(function() {
@@ -247,18 +255,19 @@
             ? product.options[product.selectedIndex].text
             : '';
           var message = form.querySelector('[name="message"]').value || '';
+          var placeholderOpt = i18n('contact.form.product.placeholder', 'Select a product category');
           var waText = [
-            'Hello, I would like to enquire about your products.',
+            i18n('contact.wa.prefill', 'Hello, I would like to enquire about your products.'),
             'Name: ' + name,
             'Phone: ' + phone,
             'Email: ' + email,
             city ? 'City: ' + city : '',
-            productLabel && productLabel !== 'Select a product category' ? 'Product: ' + productLabel : '',
+            productLabel && productLabel !== placeholderOpt ? 'Product: ' + productLabel : '',
             'Message: ' + message
           ].filter(Boolean).join('\n');
 
           showFormStatus(form, false,
-            'We could not send email automatically. Opening WhatsApp so you can send this enquiry now…');
+            i18n('contact.fail', 'We could not send email automatically. Opening WhatsApp so you can send this enquiry now…'));
           window.open(
             'https://wa.me/919268708058?text=' + encodeURIComponent(waText),
             '_blank',
@@ -310,13 +319,7 @@
     });
   });
 
-  // === Language toggle placeholder ===
-  var langToggle = document.querySelector('.lang-toggle');
-  if (langToggle) {
-    langToggle.addEventListener('click', function() {
-      alert('हिंदी संस्करण जल्द ही उपलब्ध होगा। / Hindi version coming soon.');
-    });
-  }
+  // Language toggle is handled by js/i18n.js
 
   // === Scroll animations — CSS owns initial opacity; JS only adds class ===
   if ('IntersectionObserver' in window) {

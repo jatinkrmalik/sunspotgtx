@@ -292,14 +292,29 @@ p { margin-bottom: 1em; }
   padding: 6px 12px;
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
   cursor: pointer;
-  color: var(--color-text-light);
-  transition: all var(--transition);
+  color: var(--color-text);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  min-width: 4.5rem;
 }
 
-.lang-toggle:hover {
+.lang-toggle:hover,
+.lang-toggle[aria-pressed="true"] {
   border-color: var(--color-primary);
   color: var(--color-primary);
+  background: #fff;
+}
+
+html[data-lang="hi"] body {
+  font-feature-settings: "kern" 1;
+}
+
+html[data-lang="hi"] h1,
+html[data-lang="hi"] h2 {
+  letter-spacing: 0;
+  line-height: 1.25;
 }
 
 .mobile-toggle {
